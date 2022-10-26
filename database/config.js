@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-//useNewUrlParser:true, useUnifiedTopology:true,useCreateIndex:true
+//useNewUrlParser:true, useUnifiedTopology:true,useCreateIndex:true   password:  ZjJ20Zvqrsk9st61  samuel-mongo
 
 
 

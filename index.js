@@ -10,22 +10,20 @@ const {dbConnection} = require('./database/config');
 const app = express();
 
 //Configurar cors  ** el use es una funcion que hace que se ejecute para todas las lineas que sigan hacia abajo , ejecuta esta instruccion cada vez que pasen por ese punto
-app.use(cors())
+app.use( cors() );
+
+//Lectura y parseo del body
+app.use( express.json() );
 
 //Base de datos
-dbConnection()
+dbConnection();
 
-console.log(process.env)
-
-
+//console.log(process.env)
 
 //ruta  req = lo que se solicita como headers que cliente fue y res = es lo que nuestro servidor le va a responder al cliente de nuestro backend
-app.get('/',(req, res) => {    
-    res.json({
-        ok: true,
-        msg: 'hola mundo'
-    })
-});
+app.use('/api/usuarios', require('./routes/usuarios') );
+app.use('/api/login', require('./routes/auth'));
+
 
 app.listen(process.env.PORT, () => {
     console.log('Servidor corriendo en puerto ' + process.env.PORT);
